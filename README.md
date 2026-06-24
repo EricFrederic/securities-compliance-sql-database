@@ -1,5 +1,3 @@
-<img width="910" height="193" alt="Query 9" src="https://github.com/user-attachments/assets/554d258c-3c0b-46fb-99eb-1d9b4a9c98bf" />
-<img width="910" height="193" alt="Screenshot 2026-06-24 100021" src="https://github.com/user-attachments/assets/3e1a7f0d-4e7e-4958-90a1-85bd57e307c3" />
 # Securities Compliance SQL Database
 
 **Author:** Eric A. Frederic, MBA  
