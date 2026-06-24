@@ -74,12 +74,14 @@ The project includes 13 analytical queries organized into four tiers of increasi
 The five-table join surfaces the complete violation record for every flagged transaction (account identity, trade details, security information, and assigned examiner) sorted by severity and resolution status. This is the query an examiner would run before an on-site visit.
 
 ### Query Output: Transaction Ranking and Running Totals
-![Window Function Output](screenshots/query12_window_functions.png)
+(<img width="437" height="188" alt="Query 12" src="https://github.com/user-attachments/assets/012a3112-0352-4193-8d7f-eb7b24c72e32" />
+)
 
 RANK() OVER PARTITION BY assigns each transaction a rank within its account by dollar value, while the running total accumulates trading activity chronologically. Window functions are used here precisely because they calculate across rows without collapsing the result set the way GROUP BY would.
 
 ### Query Output: Weighted Risk Scoring Model
-![Risk Scoring Model](screenshots/query13_risk_scoring.png)
+(<img width="410" height="190" alt="Query 13" src="https://github.com/user-attachments/assets/05d8f6c5-87a1-4de4-a33c-9dd3d0a8f683" />
+)
 
 The analytical centerpiece of the project. Rather than treating all compliance flags equally, this query assigns weighted scores reflecting regulatory severity tiers: High = 3, Medium = 2, Low = 1. The resulting risk ranking independently validates the human-assigned account statuses. Keystone Fund Advisors and Desert Capital Advisors rank as the two highest-risk entities, consistent with their Under Review and Suspended designations in the Accounts table. This alignment confirms the model is analytically sound and operationally meaningful.
 
