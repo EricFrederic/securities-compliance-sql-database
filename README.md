@@ -1,3 +1,5 @@
+<img width="910" height="193" alt="Query 9" src="https://github.com/user-attachments/assets/554d258c-3c0b-46fb-99eb-1d9b4a9c98bf" />
+<img width="910" height="193" alt="Screenshot 2026-06-24 100021" src="https://github.com/user-attachments/assets/3e1a7f0d-4e7e-4958-90a1-85bd57e307c3" />
 # Securities Compliance SQL Database
 
 **Author:** Eric A. Frederic, MBA  
@@ -68,7 +70,8 @@ The project includes 13 analytical queries organized into four tiers of increasi
 ## Key Findings
 
 ### Query Output: Five-Table Compliance Audit Trail
-![Full Compliance Flag Detail](screenshots/query9_compliance_audit.png)
+![Full Compliance Flag Detail](<img width="910" height="193" alt="Query 9" src="https://github.com/user-attachments/assets/e17c8374-2bf1-46e3-b290-34b1424f08f7" />
+)
 
 The five-table join surfaces the complete violation record for every flagged transaction (account identity, trade details, security information, and assigned examiner) sorted by severity and resolution status. This is the query an examiner would run before an on-site visit.
 
