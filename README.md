@@ -68,7 +68,6 @@ The project includes 13 analytical queries organized into four tiers of increasi
 ## Key Findings
 
 ### Query Output: Five-Table Compliance Audit Trail
-![Full Compliance Flag Detail]
 (<img width="910" height="193" alt="Query 9" src="https://github.com/user-attachments/assets/e17c8374-2bf1-46e3-b290-34b1424f08f7" />
 )
 
