@@ -8,7 +8,7 @@
 
 ## Business Problem
 
-State securities regulators and FINRA examiners rely on accurate, queryable data to identify risky entities, prioritize examination caseloads, and track compliance violations from detection through resolution. This project simulates the analytical infrastructure underlying that work — a multi-table relational database that models registered entities, trading activity, compliance flags, and examiner workloads in a realistic regulatory environment.
+State securities regulators and FINRA examiners rely on accurate, queryable data to identify high-risk entities, prioritize examination caseloads, and track compliance violations from detection through resolution. This project simulates the analytical infrastructure underlying that work: a multi-table relational database that models registered entities, trading activity, compliance flags, and examiner workloads in a realistic regulatory environment.
 
 The database and query library were designed to answer the kinds of questions I encountered directly as a Securities Examiner at the New Hampshire Bureau of Securities Regulation:
 
@@ -34,7 +34,7 @@ The database contains five tables with enforced referential integrity through fo
 **Design highlights:**
 - Computed column (`total_value = quantity * price`) ensures mathematical accuracy at the database level
 - CHECK constraints enforce data integrity on `transaction_type` (BUY/SELL) and `severity` (Low/Medium/High)
-- Script is fully idempotent — can be run any number of times and always produces a clean result
+- Script is fully idempotent; it can be run any number of times and always produces a clean result
 - Foreign key cascade order prevents referential integrity violations on rebuild
 
 ---
@@ -43,21 +43,21 @@ The database contains five tables with enforced referential integrity through fo
 
 The project includes 13 analytical queries organized into four tiers of increasing complexity.
 
-### Tier 1 — Basic Retrieval and Filtering
+### Tier 1: Basic Retrieval and Filtering
 - Active accounts by state
 - Transactions above a dollar threshold
 - Unresolved compliance flags by severity
 
-### Tier 2 — Aggregation and Grouping
+### Tier 2: Aggregation and Grouping
 - Transaction volume and count by account
 - Compliance flag counts and resolution rates by examiner
 - Sector-level trading activity summary
 
-### Tier 3 — Multi-Table Joins
+### Tier 3: Multi-Table Joins
 - Full transaction detail with account and security context (3-table join)
 - Complete compliance violation record joining all five tables
 
-### Tier 4 — CTEs, Subqueries, and Window Functions
+### Tier 4: CTEs, Subqueries, and Window Functions
 - Accounts with above-average transaction volume (CTE with CROSS JOIN)
 - Examiners carrying unresolved High severity caseloads (correlated subquery)
 - Transaction ranking and running totals by account (RANK and SUM OVER)
@@ -70,7 +70,7 @@ The project includes 13 analytical queries organized into four tiers of increasi
 ### Query Output: Five-Table Compliance Audit Trail
 ![Full Compliance Flag Detail](screenshots/query9_compliance_audit.png)
 
-The five-table join surfaces the complete violation record for every flagged transaction — account identity, trade details, security information, and assigned examiner — sorted by severity and resolution status. This is the query an examiner would run before an on-site visit.
+The five-table join surfaces the complete violation record for every flagged transaction (account identity, trade details, security information, and assigned examiner) sorted by severity and resolution status. This is the query an examiner would run before an on-site visit.
 
 ### Query Output: Transaction Ranking and Running Totals
 ![Window Function Output](screenshots/query12_window_functions.png)
@@ -80,7 +80,7 @@ RANK() OVER PARTITION BY assigns each transaction a rank within its account by d
 ### Query Output: Weighted Risk Scoring Model
 ![Risk Scoring Model](screenshots/query13_risk_scoring.png)
 
-The analytical centerpiece of the project. Rather than treating all compliance flags equally, this query assigns weighted scores reflecting regulatory severity tiers: High = 3, Medium = 2, Low = 1. The resulting risk ranking independently validates the human-assigned account statuses — Keystone Fund Advisors and Desert Capital Advisors rank as the two highest-risk entities, consistent with their Under Review and Suspended designations in the Accounts table. This alignment confirms the model is analytically sound and operationally meaningful.
+The analytical centerpiece of the project. Rather than treating all compliance flags equally, this query assigns weighted scores reflecting regulatory severity tiers: High = 3, Medium = 2, Low = 1. The resulting risk ranking independently validates the human-assigned account statuses. Keystone Fund Advisors and Desert Capital Advisors rank as the two highest-risk entities, consistent with their Under Review and Suspended designations in the Accounts table. This alignment confirms the model is analytically sound and operationally meaningful.
 
 ---
 
@@ -89,7 +89,7 @@ The analytical centerpiece of the project. Rather than treating all compliance f
 | Limitation | Notes |
 |------------|-------|
 | Synthetic dataset | All entities, transactions, and flags are simulated. The schema and query logic reflect real regulatory workflows; the data does not. |
-| Static snapshot | No temporal triggers or automated flag generation — flags are manually seeded to enable realistic query scenarios. |
+| Static snapshot | No temporal triggers or automated flag generation; flags are manually seeded to enable realistic query scenarios. |
 | Single jurisdiction | Modeled on state-level securities regulation. Federal frameworks (SEC, FINRA) involve additional data structures not represented here. |
 | No stored procedures | Queries are written as standalone scripts. Production deployment would benefit from parameterized stored procedures. |
 
