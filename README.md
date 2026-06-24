@@ -47,6 +47,7 @@ The project includes 13 analytical queries organized into four tiers of increasi
 - Active accounts by state
 - Transactions above a dollar threshold
 - Unresolved compliance flags by severity
+<img width="222" height="119" alt="severity" src="https://github.com/user-attachments/assets/fd9cec79-75b9-4bf4-898d-638668649642" />
 
 ### Tier 2: Aggregation and Grouping
 - Transaction volume and count by account
