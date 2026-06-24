@@ -52,11 +52,13 @@ The project includes 13 analytical queries organized into four tiers of increasi
 ### Tier 2: Aggregation and Grouping
 - Transaction volume and count by account
 - Compliance flag counts and resolution rates by examiner
-- Sector-level trading activity summary
+- Trade activity trend by month
+<img width="326" height="116" alt="monthly_transactions" src="https://github.com/user-attachments/assets/8d70e0f4-c7ae-405c-867a-1e02b5b2d3ba" />
 
 ### Tier 3: Multi-Table Joins
 - Full transaction detail with account and security context (3-table join)
 - Complete compliance violation record joining all five tables
+<img width="337" height="290" alt="Joins" src="https://github.com/user-attachments/assets/537a6720-c7bf-4c6d-baac-caee6c6b9e84" />
 
 ### Tier 4: CTEs, Subqueries, and Window Functions
 - Accounts with above-average transaction volume (CTE with CROSS JOIN)
