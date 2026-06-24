@@ -62,7 +62,8 @@ The project includes 13 analytical queries organized into four tiers of increasi
 - Examiners carrying unresolved High severity caseloads (correlated subquery)
 - Transaction ranking and running totals by account (RANK and SUM OVER)
 - Weighted compliance risk scoring model (CASE/RANK window function)
-
+(<img width="347" height="246" alt="risk score" src="https://github.com/user-attachments/assets/51c9972b-b9c1-45ff-924d-ffac36c055f5" />
+)
 ---
 
 ## Key Findings
